@@ -13,16 +13,18 @@ public class FindMax {
         }
         System.out.println(Arrays.toString(intsArr));
 
-        for (int i = 0; i < intsArr.length; i++) {
+        for (int i = 0; i < intsArr.length - 1; i++) {
             int maxIndex = i;
-            for (int j = i; j < intsArr.length; j++) {
+            for (int j = i + 1; j < intsArr.length; j++) {
                 if (intsArr[j] > intsArr[maxIndex]) {
                     maxIndex = j;
                 }
             }
-            int temp = intsArr[maxIndex];
-            intsArr[maxIndex] = intsArr[i];
-            intsArr[i] = temp;
+            if(i != maxIndex){
+                int temp = intsArr[maxIndex];
+                intsArr[maxIndex] = intsArr[i];
+                intsArr[i] = temp;
+            }
         }
         System.out.println("Mang sau khi sap xep theo thu tu giam dan: " + Arrays.toString(intsArr));
         System.out.println("Phan tu lon nhat trong mang la: " + intsArr[0]);
